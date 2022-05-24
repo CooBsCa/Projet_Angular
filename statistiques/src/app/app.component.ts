@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Statistique} from 'src/models/statistique';
+import {ServiceStatistiqueService } from 'src/app/services/service-statistique.service'
 
 @Component({
   selector: 'app-root',
@@ -8,15 +9,13 @@ import { Statistique} from 'src/models/statistique';
 })
 export class AppComponent implements OnInit{
   title = 'statistiques';
-  public stat1: Statistique = {identifiant: "fa1f5f40-be3b-11eb-91ec-7f5875ecfb46", titre: "Démographie en France",valeur:"60M"};
-  public stat2: Statistique = {identifiant: "fa1f5f40-be3b-11eb-91ec-7f5875ecfb46", titre: "Démographie en Europe",valeur:"80M"};
   public stat3: Statistique = {identifiant: "fa1f5f40-be3b-11eb-91ec-7f5875ecfb46", titre: "Démographie en Europe",valeur:"80M"};
-  public mesStats: Statistique[] = [this.stat1,this.stat2];
-
+  ngOnInit(): void {    
+  }
   
-  ngOnInit(): void {
+  constructor(public serviceStats: ServiceStatistiqueService){
     setTimeout(() => {
-      this.mesStats.push(this.stat3)
+      this.serviceStats.mesStats.push(this.stat3)
     }, 3000);
   }
 }

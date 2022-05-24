@@ -1,5 +1,4 @@
-<p>{{ stat1.titre }}</p>
-<p>{{ stat2.titre }}</p>
-<ng-container *ngFor="let p of mesStats">
+
+<ng-container *ngFor="let p of serviceStats.mesStats">
   <app-statistique [uneStat]="p"></app-statistique>
 </ng-container>
