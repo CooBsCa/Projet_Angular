@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Statistique} from 'src/models/statistique';
 import {ServiceStatistiqueService } from 'src/app/services/service-statistique.service'
+import { StatBack } from 'src/models/apiTypes';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -13,10 +15,22 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {    
   }
   
-  constructor(public serviceStats: ServiceStatistiqueService){
+  constructor(public serviceStats: ServiceStatistiqueService,private http:HttpClient){
     setTimeout(() => {
       this.serviceStats.mesStats.push(this.stat3)
     }, 3000);
+
+    this.http.get<StatBack[]>("https://stats.naminilamy.fr").subscribe(
+      res => {
+        for (const stat of res) {
+          this.serviceStats.mesStats.push({
+            identifiant: stat.id,
+            titre: stat.title,
+            valeur: stat.value
+          });
+        }
+      }
+    );
   }
 }
 
