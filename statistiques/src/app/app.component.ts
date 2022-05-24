@@ -9,7 +9,7 @@ import {ServiceStatistiqueService } from 'src/app/services/service-statistique.s
 })
 export class AppComponent implements OnInit{
   title = 'statistiques';
-  public stat3: Statistique = {identifiant: "fa1f5f40-be3b-11eb-91ec-7f5875ecfb46", titre: "Démographie en Europe",valeur:"80M"};
+  public stat3: Statistique = {identifiant: "fa1f5f40-be3b-11eb-91ec-7f5875ecfb47", titre: "Démographie en Asie",valeur:"100M"};
   ngOnInit(): void {    
   }
   
