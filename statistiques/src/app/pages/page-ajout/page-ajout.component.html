@@ -1,0 +1,16 @@
+<h1>Page Ajout</h1>
+<form #formAjout="ngForm" (ngSubmit)="ajouterStat()">
+    <div class="mb-3">
+      <label for="inputIdentifiant" class="form-label">Identifiant</label>
+      <input type="string" class="form-control" id="inputIdentifiant" [(ngModel)]="identifiant" name="identifiant" required>
+    </div>
+    <div class="mb-3">
+      <label for="inputTitre" class="form-label">Titre</label>
+      <input type="string" class="form-control" id="inputTitre" [(ngModel)]="titre" name="titre" required>
+    </div>
+    <div class="mb-3">
+      <label for="inputValeur" class="form-label">Valeur</label>
+      <input type="string" class="form-control" id="inputValeur" [(ngModel)]="valeur" name="valeur" required>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!formAjout.valid">Ajouter</button>
+  </form>
